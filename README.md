@@ -1,5 +1,7 @@
 # stardew-tracker
 
+Big shoutout to John Cleaver (kihashi) for his work on the stardew community checklist.
+This is meant to be a re-write of his application in Clojure.
 
 ## Development
 
@@ -46,44 +48,6 @@ In the REPL, type
 ```
 
 Notice again how the browser updates.
-
-### Lighttable
-
-Lighttable provides a tighter integration for live coding with an inline
-browser-tab. Rather than evaluating cljs on the command line with the Figwheel
-REPL, you can evaluate code and preview pages inside Lighttable.
-
-Steps: After running `(go)`, open a browser tab in Lighttable. Open a cljs file
-from within a project, go to the end of an s-expression and hit Cmd-ENT.
-Lighttable will ask you which client to connect. Click 'Connect a client' and
-select 'Browser'. Browse to [http://localhost:10555](http://localhost:10555)
-
-View LT's console to see a Chrome js console.
-
-Hereafter, you can save a file and see changes or evaluate cljs code (without
-saving a file).
-
-### Emacs/CIDER
-
-CIDER is able to start both a Clojure and a ClojureScript REPL simultaneously,
-so you can interact both with the browser, and with the server. The command to
-do this is `M-x cider-jack-in-clojurescript`.
-
-We need to tell CIDER how to start a browser-connected Figwheel REPL though,
-otherwise it will use a JavaScript engine provided by the JVM, and you won't be
-able to interact with your running app.
-
-Put this in your Emacs configuration (`~/.emacs.d/init.el` or `~/.emacs`)
-
-``` emacs-lisp
-(setq cider-cljs-lein-repl
-      "(do (user/go)
-           (user/cljs-repl))")
-```
-
-Now `M-x cider-jack-in-clojurescript` (shortcut: `C-c M-J`, that's a capital
-"J", so `Meta-Shift-j`), point your browser at `http://localhost:10555`, and
-you're good to go.
 
 ## Testing
 

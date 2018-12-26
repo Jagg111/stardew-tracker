@@ -5,6 +5,6 @@
   [:main
    [:div.items
     (for [{:keys [id name source]} (vals @state/items)]
-      [:div.item (:key id)
+      [:div.item {:key id}
        [:p name]
        [:p source]])]])

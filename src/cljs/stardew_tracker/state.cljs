@@ -1,6 +1,11 @@
 (ns stardew-tracker.state
   (:require [reagent.core :as r]))
 
+;; The ID's in this atom refer to the ":bundles :id" in the items atom below
+(def progress (r/atom
+                {:2 nil
+                 :3 nil}))
+
 ;; Items game data
 (def items (r/atom
              {:item-01

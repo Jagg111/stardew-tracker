@@ -1,12 +1,12 @@
 (ns stardew-tracker.core
-  (:require [reagent.core :as reagent :refer [atom]]))
+  (:require [reagent.core :as reagent :refer [atom]]
+            [stardew-tracker.components.content :refer [content]]))
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
-
-(defn greeting []
-  [:h1 (:text @app-state)])
+(defn app []
+  [:div.container
+   [content]])
 
 (defn render []
-  (reagent/render [greeting] (js/document.getElementById "app")))
+  (reagent/render [app] (js/document.getElementById "app")))

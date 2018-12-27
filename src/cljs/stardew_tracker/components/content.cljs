@@ -10,17 +10,20 @@
         [:p.card-header-title name]]
        [:div.card-content
         [:p source]
-
+        [:hr]
         ;; if the current items "bundles_id" is present in the progress atom
-        ;; this will eventually need to account for items that count towards
-        ;; multiple bundles
+        ;; this will eventually need to account for items that count towards multiple bundles
         (if (contains? @state/progress (get-in bundles [:id]))
           ;; true = that item is completed
-          [:button "completed"]
-          ;; false = this is an open todo
-          [:button "todo"])
+          [:div
+           [:button "completed"]]
+          ;; false = this is an open task
+          [:div
+           [:button "todo"]])
+        ;; using the bundle_id on the item, create the key to look up the bundles name from the bundles atom
+        [:span (get-in @state/bundles [(keyword (str "bundle_" (get-in bundles [:bundle_id]))) :name])]]
 
-        ]
+
        [:div.card-footer
         ;; have to use for to iterate through the seasons vector
         (for [season seasons]

@@ -66,11 +66,14 @@
                      :reward "Bridge Repair"}]))
 
 ;; Bundles game data
-(def bundles (r/atom {{:id 0
+(def bundles (r/atom {
+                      :bundle_0
+                      {:id 0
                        :name "Spring Foraging Bundle"
                        :room 0
                        :reward "Spring Seeds (30)"
                        :items_required 4}
+                      :bundle_1
                       {:id 1
                        :name "Summer Foraging Bundle"
                        :room 0

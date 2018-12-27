@@ -7,6 +7,7 @@
                 {:2 nil
                  :3 nil}))
 
+;;separate out everything below into a data file since these will never change. no need to use atoms
 ;; Items game data
 (def items (r/atom
              {:item-01
@@ -67,13 +68,13 @@
 
 ;; Bundles game data
 (def bundles (r/atom {
-                      :bundle_0
+                      0
                       {:id 0
                        :name "Spring Foraging Bundle"
                        :room 0
                        :reward "Spring Seeds (30)"
                        :items_required 4}
-                      :bundle_1
+                      1
                       {:id 1
                        :name "Summer Foraging Bundle"
                        :room 0

@@ -16,9 +16,11 @@
         (if (contains? @state/progress (get-in bundles [:id]))
           ;; true = that item is completed
           [:div
+           [:i.material-icons "check_box_"]
            [:button "completed"]]
           ;; false = this is an open task
           [:div
+           [:i.material-icons "check_box_outline_blank"]
            [:button "todo"]])
         ;; using the bundle_id on the item, create the key to look up the bundles name from the bundles atom
         [:span (get-in @state/bundles [(keyword (str "bundle_" (get-in bundles [:bundle_id]))) :name])]]

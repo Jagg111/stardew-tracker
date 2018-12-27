@@ -12,8 +12,12 @@
         [:p source]
 
         ;; if the current items "bundles_id" is present in the progress atom
-        (if (contains? @state/progress :1)
+        ;; this will eventually need to account for items that count towards
+        ;; multiple bundles
+        (if (contains? @state/progress (get-in bundles [:id]))
+          ;; true = that item is completed
           [:button "completed"]
+          ;; false = this is an open todo
           [:button "todo"])
 
         ]

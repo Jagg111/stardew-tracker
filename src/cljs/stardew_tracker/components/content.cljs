@@ -3,7 +3,11 @@
 
 (defn content []
   ;; let get-bundle-name help us look up the name of a bundle given it's ID
-  (let [get-bundle-name #(get-in @state/bundles [(get-in % [:bundle_id]) :name])]
+  (let
+    [get-bundle-name #(get-in @state/bundles [(get-in % [:bundle_id]) :name])
+     ;;complete-bundle #(swap! state/progress conj :0 nil)
+     ]
+
     [:main
      [:div.items
       ;; loop through all the items in the items atom
@@ -22,18 +26,19 @@
          ;; bundle tracker
          [:div.card-action
           ;; if the current items "bundles_id" is present in the progress atom
+          ;; some checks to see if the current bundles id exists in the progress atom
           ;; this will eventually need to account for items that count towards multiple bundles
-          (if (contains? @state/progress (get-in bundles [:id]))
+          (if (some #(= (get-in bundles [:id]) %) @state/progress )
             ;; true = that item is completed
             [:div
-             [:a {:class "btn-small"}
+             [:a {:class "btn-small" }
               ;; make a checked checkbox
               [:i {:class "material-icons left"} "check_box"]
               ;; put in the name of the bundle
               (get-bundle-name bundles)]]
             ;; false = this item is still needed for a bundle
             [:div
-             [:a {:class "btn-small"}
+             [:a {:class "btn-small" :on-click #(swap! state/progress conj :0 nil) }
               ;; make a empty checkbox
               [:i {:class "material-icons left"} "check_box_outline_blank"]
               ;; put in the name of the bundle

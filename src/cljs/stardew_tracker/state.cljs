@@ -1,11 +1,9 @@
 (ns stardew-tracker.state
   (:require [reagent.core :as r]))
 
-;; The ID's in this atom refer to the ":bundles :id" in the items atom below
-;; I THINK atoms have to be maps, so I'm using bundles IDs as key and nil for values
+;; The values in this atom refer to the ":bundles :id" in the items atom below
 (def progress (r/atom
-                {:2 nil
-                 :3 nil}))
+                [2]))
 
 ;;separate out everything below into a data file since these will never change. no need to use atoms
 ;; Items game data
@@ -18,7 +16,7 @@
                :source "Foraging during Spring."
                :bundles {:bundle_id 0
                          :count 1
-                         :id :0}}
+                         :id 0}}
               :item-02
               {:name "Daffodil"
                :skills ["foraging"]
@@ -27,7 +25,7 @@
                :source "Foraging during Spring. Buy from Pierre's Shop at the Flower Dance."
                :bundles {:bundle_id 0
                          :count 1
-                         :id :1}}
+                         :id 1}}
               :item-03
               {:name "Leek"
                :skills ["foraging"]
@@ -36,7 +34,7 @@
                :source "Foraging during Spring."
                :bundles {:bundle_id 0
                          :count 1
-                         :id :2}}
+                         :id 2}}
               :item-04
               {:name "Dandelion"
                :skills ["foraging"]
@@ -45,7 +43,7 @@
                :source "Foraging during Spring. Buy from Pierre's Shop at the Flower Dance"
                :bundles {:bundle_id 0
                          :count 1
-                         :id :3}}}))
+                         :id 3}}}))
 
 ;; Seasons game data
 (def seasons (r/atom {{:id "spring"

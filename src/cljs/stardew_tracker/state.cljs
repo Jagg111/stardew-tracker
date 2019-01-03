@@ -3,7 +3,7 @@
 
 ;; The values in this atom refer to the ":bundles :id" in the items atom below
 (def progress (r/atom
-                [2]))
+                [0]))
 
 ;;separate out everything below into a data file since these will never change. no need to use atoms
 ;; Items game data

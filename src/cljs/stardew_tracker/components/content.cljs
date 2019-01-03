@@ -41,7 +41,7 @@
                 (get-bundle-name bundles)]]
               ;; false = this item is still needed for a bundle
               [:div
-               [:a {:class "btn-small" :on-click #(swap! state/progress conj 1) }
+               [:a {:class "btn-small" :on-click #(swap! state/progress conj (get-in bundles [:id])) }
                 ;; make a empty checkbox
                 [:i {:class "material-icons left"} "check_box_outline_blank"]
                 ;; put in the name of the bundle

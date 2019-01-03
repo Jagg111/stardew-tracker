@@ -34,14 +34,14 @@
             (if (some #(= (get-in bundles [:id]) %) @state/progress )
               ;; true = that item is completed
               [:div
-               [:a {:class "btn-small" }
+               [:a {:class "btn-small" :on-click #(swap! state/progress disj (get-in bundles [:id]))}
                 ;; make a checked checkbox
                 [:i {:class "material-icons left"} "check_box"]
                 ;; put in the name of the bundle
                 (get-bundle-name bundles)]]
               ;; false = this item is still needed for a bundle
               [:div
-               [:a {:class "btn-small" :on-click #(swap! state/progress conj (get-in bundles [:id])) }
+               [:a {:class "btn-small" :on-click #(swap! state/progress conj (get-in bundles [:id]))}
                 ;; make a empty checkbox
                 [:i {:class "material-icons left"} "check_box_outline_blank"]
                 ;; put in the name of the bundle

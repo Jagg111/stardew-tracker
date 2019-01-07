@@ -67,7 +67,7 @@
             [:i {:class "material-icons"} "work"]
             ;; have to use for to iterate through the skills vector
             (for [skill skills]
-              [:span {:key 1} skill])]
+              [:span.skillTag {:key skill} skill])]
            ]
           )
         )

@@ -52,7 +52,16 @@
                :source "Found in the Ocean, Nighttime, Spring or Fall. Only when raining."
                :bundles {:bundle_id 1
                          :count 1
-                         :id 4}}}))
+                         :id 4}}
+              :item-06
+              {:name "Clam"
+               :skills ["Foraging" "Fishing"]
+               :seasons ["Spring" "Summer" "Fall" "Winter"]
+               :id 5
+               :source "Found in the Ocean, Nighttime, Spring or Fall. Only when raining."
+               :bundles {:bundle_id 2
+                         :count 1
+                         :id 5}}}))
 
 ;; Seasons game data
 (def seasons (r/atom {{:id "spring"
@@ -86,4 +95,10 @@
                        :name "Night Fishing Bundle"
                        :room 0
                        :reward "Small Glow Ring"
+                       :items_required 3}
+                      2
+                      {:id 2
+                       :name "Crab Pot Bundle"
+                       :room 0
+                       :reward "placeholder"
                        :items_required 3}}))

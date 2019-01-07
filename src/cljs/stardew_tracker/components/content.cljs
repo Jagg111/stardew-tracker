@@ -1,10 +1,11 @@
 (ns stardew-tracker.components.content
-  (:require [stardew-tracker.state :as state]))
+  (:require [stardew-tracker.state :as state]
+             [stardew-tracker.data :as gameData]))
 
 (defn content []
   ;; let get-bundle-name help us look up the name of a bundle given it's ID
   (let
-    [get-bundle-name #(get-in @state/bundles [(get-in % [:bundle_id]) :name])
+    [get-bundle-name #(get-in gameData/bundles [(get-in % [:bundle_id]) :name])
      ;;complete-bundle #(swap! state/progress conj :0 nil)
      ]
 
@@ -16,7 +17,7 @@
         ;; loop through all the items in the items atom
         ;; NOTE - might be preferable to use doseq instead of for here
         ;; create an item card for each item
-        (for [{:keys [id name source seasons skills bundles]} (vals @state/items)]
+        (for [{:keys [id name source seasons skills bundles]} (vals gameData/items)]
           [:div {:key id :class "card"}
 
            ;; item card name

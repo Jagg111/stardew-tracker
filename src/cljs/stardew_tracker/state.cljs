@@ -43,7 +43,16 @@
                :source "Foraging during Spring. Buy from Pierre's Shop at the Flower Dance"
                :bundles {:bundle_id 0
                          :count 1
-                         :id 3}}}))
+                         :id 3}}
+              :item-05
+              {:name "Eel"
+               :skills ["fishing"]
+               :seasons ["Spring" "Fall"]
+               :id 4
+               :source "Found in the Ocean, Nighttime, Spring or Fall. Only when raining."
+               :bundles {:bundle_id 1
+                         :count 1
+                         :id 4}}}))
 
 ;; Seasons game data
 (def seasons (r/atom {{:id "spring"
@@ -74,7 +83,7 @@
                        :items_required 4}
                       1
                       {:id 1
-                       :name "Summer Foraging Bundle"
+                       :name "Night Fishing Bundle"
                        :room 0
-                       :reward "Summer Seeds (30)"
+                       :reward "Small Glow Ring"
                        :items_required 3}}))

@@ -1,3 +1,10 @@
 h1 {
   text-decoration: underline;
 }
+
+.seasonTag {
+   background: #1fc8db;
+   color: #fff;
+   border-radius: 290486px;
+   padding: 4px 10px;
+}

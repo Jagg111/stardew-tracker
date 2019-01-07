@@ -14,6 +14,8 @@
       ;; see https://github.com/reagent-project/reagent/issues/91
       (doall
         ;; loop through all the items in the items atom
+        ;; NOTE - might be preferable to use doseq instead of for here
+        ;; create an item card for each item
         (for [{:keys [id name source seasons skills bundles]} (vals @state/items)]
           [:div {:key id :class "card"}
 
@@ -50,10 +52,15 @@
 
            ;; what season item can be found in
            [:div {:class "card-content grey lighten-4"}
+
+            ;; make a icon to show in front of the season names
             [:i {:class "material-icons"} "date_range"]
+
             ;; have to use for to iterate through the seasons vector
+            ;; react needs a key since we are looping through, will just use the season name as the key
+            ;; could use map here
             (for [season seasons]
-              [:span {:key 1} season])]
+              [:span.seasonTag {:key season} season])]
 
            ;; what skill the item can be acquired from
            [:div {:class "card-content grey lighten-4"}

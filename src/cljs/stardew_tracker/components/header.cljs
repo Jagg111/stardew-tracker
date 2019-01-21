@@ -1,11 +1,11 @@
 (ns stardew-tracker.components.header)
 
 (defn header []
-  [:div#header
-   [:div#headerLeft
+  [:header.grid-x.grid-padding-x
+   [:div#header-left.cell.auto
     [:h1 "Stardew Community Checklist"]]
-   [:div#headerRight
-    [:a.btn-small {:href "#"} "Export Data"
-     [:i {:class "material-icons left"} "cloud_download"]]
-    [:a.btn-small {:href "#"} "Import Data"
-     [:i {:class "material-icons left"} "cloud_upload"]]]])
+   [:div#header-right.cell.shrink
+    [:a {:href "#"}
+     [:span [:i {:class "material-icons left"} "cloud_download"] "Export Data"]]
+    [:a {:href "#"}
+     [:span [:i {:class "material-icons left"} "cloud_upload"] "Import Data"]]]])

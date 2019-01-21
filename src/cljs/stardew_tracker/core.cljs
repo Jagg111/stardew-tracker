@@ -6,7 +6,7 @@
 (enable-console-print!)
 
 (defn app []
-  [:div.container
+  [:div#site-wrapper
    [header]
    [content]])
 

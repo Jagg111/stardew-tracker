@@ -1,43 +1,122 @@
-h1 {
-  text-decoration: underline;
+/* This CSS assumes we are using foundation from zurb */
+p {
+    margin-bottom: 0px; /* override foundation default p margin bottom */
 }
 
-.seasonTag {
-   background: #1fc8db;
-   color: #fff;
-   border-radius: 290486px;
-   padding: 4px 10px;
-}
-.skillTag {
-   background: #42afe3;
-   color: #fff;
-   border-radius: 290486px;
-   padding: 4px 10px;
-}
-#header {
-    background: #42afe3;
-    width: 100%;
-    display: flex;
-}
-#header h1{
+
+/* things in the header */
+header {
+    background: #42afe3 !important;
     color: #fff;
+    justify-content: space-between; /* pushes the two sections of the header apart to have even spacing */
+    align-items: center; /* center items vertically */
+}
+
+h1{
     font-weight: 300;
     font-size: 28px;
     font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
-    underline: none;
     text-decoration: none;
-    display: block;
-    text-rendering: optimizelegibility;
 
 }
-#headerRight a {
-    border: 1px solid #d3d6db;
+
+#header-left {
+
+}
+
+#header-right span {
+    padding: 10px;
+    border: 1px solid white;
     border-radius: 3px;
-    color: #fff;
-    text-align: center;
-    background: transparent;
 }
 
-#saveButton {
+#header-right a {
+    color: white;;
+}
 
+/* items wrapper */
+
+main.grid-container {
+    max-width: 100%; /* Default is adding a narrower max width so that to override with this */
+}
+
+.items {
+
+}
+
+.grid-x {
+    background: none;
+}
+
+
+/* item cards */
+
+.item-wrapper {
+    padding: 10px;
+}
+
+.item-card {
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.item-name {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.item-name p {
+    padding: 10px;
+    color: #222324;
+    font-weight: bold;
+    font-size:14px;
+}
+
+.item-contents {
+    padding: 20px;
+    font-size: 14px;
+}
+
+.item-source {
+    color: #69707a;
+}
+
+.bundle {
+    border-radius: 3px;
+    text-align: center;
+}
+
+.bundle a {
+    color: #fff;
+}
+
+.completed {
+    background: #97cd76;
+}
+
+.open {
+    background: #ed6c63;
+}
+
+.item-footer {
+    background: #f5f7fa;
+    font-size: 14px;
+    border-top: 1px solid #d3d6db; /* add a border to the top of the item footers */
+    line-height: 16px; /* reduce the overall height of the tags to condense */
+    display:flex; /* set to be a flex parent */
+    justify-content: center;  /* centers the children tags */
+    flex-wrap: wrap; /* make the items inside wrap */
+}
+
+.item-footer span {
+   color: #fff;
+   border-radius: 290486px;
+   padding: 4px 10px;
+   font-size: 12px;
+}
+
+.season-tag {
+   background: #1fc8db;
+}
+
+.skill-tag {
+   background: #42afe3;
 }

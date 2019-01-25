@@ -8,8 +8,13 @@ p {
 header {
     background: #42afe3 !important;
     color: #fff;
+}
+
+#header-wrapper {
     justify-content: space-between; /* pushes the two sections of the header apart to have even spacing */
     align-items: center; /* center items vertically */
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 h1{

@@ -28,7 +28,7 @@
         (for [{:keys [id name source seasons skills bundles]} (vals gameData/items)]
 
           ;; Testing search
-          (if (string/includes? name @state/searchText)
+          (if (string/includes? (string/lower-case name) (string/lower-case @state/searchText))
             [:div.item-wrapper.cell.small-12.medium-6.large-3.grid-y
 
              [:div.item-card {:key id}

@@ -29,9 +29,9 @@
 
           ;; Testing search
           (if (string/includes? (string/lower-case name) (string/lower-case @state/searchText))
-            [:div.item-wrapper.cell.small-12.medium-6.large-3.grid-y
+            [:div.item-wrapper.cell.small-12.medium-6.large-3.grid-y  {:key id}
 
-             [:div.item-card {:key id}
+             [:div.item-card
 
               ;; item card name
               [:div.cell.item-name
@@ -55,14 +55,14 @@
                      (if (some #(= (get-in bundle [:id]) %) @state/progress)
                        ;; true = that item is completed
                        ;; using the ID of the actual item here for the react unique key, not sure if that is proper
-                       [:div.cell.auto.bundle.completed  {:key id}
+                       [:div.cell.auto.bundle.completed  {:key (str id (get-in bundle [:id]))}
                         [:a {:on-click #(swap! state/progress disj (get-in bundle [:id]))}
                          ;; make a checked checkbox
                          [:i.material-icons "check_box"]
                          ;; put in the name of the bundle
                          (get-bundle-name bundle)]]
                        ;; false = this item is still needed for a bundle
-                       [:div.cell.auto.bundle.open  {:key id}
+                       [:div.cell.auto.bundle.open  {:key (str id (get-in bundle [:id]))}
                         [:a {:on-click #(swap! state/progress conj (get-in bundle [:id]))}
                          ;; make a empty checkbox
                          [:i.material-icons "check_box_outline_blank"]
@@ -80,14 +80,14 @@
                 ;; react needs a key since we are looping through, will just use the season name as the key
                 ;; could use map here
                 (for [season seasons]
-                  [:span.season-tag {:key season} season])]
+                  [:span.season-tag {:key (str id season)} season])]
 
                ;; what skill the item can be acquired from
               [:div.cell.item-footer
                 [:i.material-icons "work"]
                 ;; have to use for to iterate through the skills vector
                 (for [skill skills]
-                  [:span.skill-tag {:key skill} skill])]]])))]]))
+                  [:span.skill-tag {:key (str id skill)} skill])]]])))]]))
 
 
 
